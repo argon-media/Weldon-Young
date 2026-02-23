@@ -783,8 +783,8 @@ export default function App() {
         <>
           <Hero />
           <Stats />
-          <HowItWorks />
           <Services />
+          <HowItWorks />
           <Portfolio />
           <Expertise />
           <Testimonials />
