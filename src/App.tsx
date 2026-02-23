@@ -161,22 +161,15 @@ const Hero = () => (
           transition={{ duration: 1, delay: 0.2 }}
           className="relative z-10"
         >
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-[12px] border-white">
+          <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-[12px] border-white">
             <img 
-              src="https://images.unsplash.com/photo-1513584684374-8bdb74838a0f?q=80&w=2070&auto=format&fit=crop" 
+              src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/home-inspector-examining-exterior-house-with-clipboard-scaled.jpg" 
               alt="UK Residential Property" 
               className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
               referrerPolicy="no-referrer"
             />
           </div>
         </motion.div>
-
-        {/* Vertical Rail Text */}
-        <div className="absolute -right-12 top-1/2 -translate-y-1/2 hidden 2xl:block">
-          <span className="vertical-text font-mono text-[10px] uppercase tracking-[0.8em] text-primary/20">
-            WELDON YOUNG SURVEYORS — EST. 1990 — LONDON
-          </span>
-        </div>
       </div>
     </div>
   </section>
@@ -269,7 +262,7 @@ const Expertise = () => (
         <div className="relative">
           <div className="aspect-[3/4] rounded-sm overflow-hidden shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+              src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/row-classic-victorian-era-brick-terraced-houses-residential-street-hemel-hempstead-england-scaled.jpg" 
               alt="The Standard" 
               className="w-full h-full object-cover opacity-80"
               referrerPolicy="no-referrer"
@@ -350,7 +343,7 @@ const Stats = () => (
       <div className="grid lg:grid-cols-4 gap-6">
         <div className="lg:col-span-1 rounded-2xl overflow-hidden h-64 lg:h-auto">
           <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
+            src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/home-inspection-contractor-evaluates-house-scaled.jpg" 
             alt="Modern UK Home" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -650,8 +643,6 @@ const CTA = () => (
     <div className="absolute inset-0 blueprint-grid opacity-5" />
     <div className="max-w-[1400px] mx-auto px-8 relative z-10">
       <div className="bg-primary p-12 md:p-20 rounded-sm shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/10 -skew-x-12 translate-x-1/2" />
-        
         <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div>
             <h2 className="text-4xl md:text-6xl text-white mb-6">Ready to <br /> <span className="italic text-accent">Secure</span> Your Asset?</h2>
