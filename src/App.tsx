@@ -584,37 +584,127 @@ const Blog = ({ onPostClick }: { onPostClick: (id: number) => void }) => {
   );
 };
 
-const ServicesPage = () => (
-  <div className="pt-32">
-    <section className="section-spacing bg-white">
-      <div className="max-w-[1400px] mx-auto px-8">
-        <div className="max-w-3xl mb-20">
-          <div className="subheading-pill">Our Expertise</div>
-          <h1 className="text-5xl md:text-7xl text-primary mb-8">Professional <br /> Surveying Services.</h1>
-          <p className="text-xl text-slate-500 font-light leading-relaxed">
-            Weldon Young provides a comprehensive range of RICS-regulated surveying services. From pre-purchase inspections to specialist damp investigations, we deliver technical clarity for every property type.
-          </p>
+const ServicesPage = () => {
+  const detailedServices = [
+    {
+      title: "Building Surveys (Level 3)",
+      desc: "Our Level 3 Building Survey is the most comprehensive inspection we offer. It is particularly suited for older properties, period homes, or buildings that have undergone significant alterations. We provide a deep dive into the structural integrity, identifying hidden defects and providing technical advice on necessary repairs.",
+      features: ["Full structural assessment", "85+ page detailed report", "Technical repair advice", "Future maintenance planning"],
+      img: "https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/georgian-townhouse-brick-facade-with-sash-windows-afternoon-lighting-1.jpg"
+    },
+    {
+      title: "HomeBuyer Reports (Level 2)",
+      desc: "The standard choice for modern properties in reasonable condition. This report focuses on identifying building defects that might affect the property's value or safety. It uses a clear traffic light system to highlight areas of concern, making it easy for buyers to understand the property's condition.",
+      features: ["Condition rating system", "Identification of urgent defects", "Maintenance advice", "Professional valuation (optional)"],
+      img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
+    },
+    {
+      title: "Damp & Timber Investigations",
+      desc: "Moisture issues can be devastating for a property. Our specialist damp and timber surveys use advanced diagnostic tools to identify the root cause of dampness, wood rot, or beetle infestation. We provide independent remedial advice, ensuring you don't pay for unnecessary treatments.",
+      features: ["Moisture mapping", "Timber decay diagnosis", "Independent remedial advice", "Advanced diagnostic tools"],
+      img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      title: "Listed Building Surveys",
+      desc: "Historic properties require a different approach. Our surveyors are experts in traditional building methods and materials. We understand the complexities of Grade I and II listed buildings, ensuring our surveys respect the heritage while identifying critical maintenance needs.",
+      features: ["Heritage expertise", "Traditional material analysis", "Conservation advice", "Listed building compliance"],
+      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
+    }
+  ];
+
+  return (
+    <div className="pt-32">
+      {/* Banner */}
+      <section className="relative h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/old-stone-house-england-1.jpg" 
+            alt="Services Banner" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm" />
         </div>
-        <Services />
-      </div>
-    </section>
-    <Expertise />
-    <HowItWorks />
-  </div>
-);
+        <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
+          <div className="max-w-3xl">
+            <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Our Expertise</div>
+            <h1 className="text-5xl md:text-7xl text-white mb-8">Professional <br /> Surveying Services.</h1>
+            <p className="text-xl text-white/60 font-light leading-relaxed">
+              Weldon Young provides a comprehensive range of RICS-regulated surveying services. From pre-purchase inspections to specialist damp investigations, we deliver technical clarity for every property type.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Services Layout */}
+      <section className="bg-white">
+        {detailedServices.map((service, i) => (
+          <div key={i} className={`section-spacing ${i % 2 === 1 ? 'bg-slate-50' : 'bg-white'}`}>
+            <div className="max-w-[1400px] mx-auto px-8">
+              <div className={`grid lg:grid-cols-2 gap-20 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div className="subheading-pill">Service {i + 1}</div>
+                  <h2 className="text-4xl md:text-5xl text-primary mb-8">{service.title}</h2>
+                  <p className="text-lg text-slate-500 font-light leading-relaxed mb-8">
+                    {service.desc}
+                  </p>
+                  <ul className="grid sm:grid-cols-2 gap-4 mb-10">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-slate-600">
+                        <CheckCircle2 size={18} className="text-accent shrink-0" />
+                        <span className="text-sm font-medium">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="btn-crafted">
+                    Request a Quote <ArrowRight size={14} />
+                  </button>
+                </div>
+                <div className={`relative ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-full blur-3xl -z-10" />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <Expertise />
+      <HowItWorks />
+    </div>
+  );
+};
 
 const ContactPage = () => (
   <div className="pt-32">
-    <section className="section-spacing bg-white">
+    {/* Banner */}
+    <section className="relative h-[50vh] flex items-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/georgian-townhouse-brick-facade-with-sash-windows-afternoon-lighting-1.jpg" 
+          alt="Contact Banner" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm" />
+      </div>
+      <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
+        <div className="max-w-3xl">
+          <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Contact Us</div>
+          <h1 className="text-5xl md:text-7xl text-white mb-8">Let's Discuss <br /> Your Property.</h1>
+          <p className="text-xl text-white/60 font-light leading-relaxed">
+            Have a question about a potential purchase or a building defect? Our team is here to provide expert guidance and a transparent quote for your requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-20 bg-white">
       <div className="max-w-[1400px] mx-auto px-8">
         <div className="grid lg:grid-cols-2 gap-20 items-start">
           <div>
-            <div className="subheading-pill">Contact Us</div>
-            <h1 className="text-5xl md:text-7xl text-primary mb-8">Let's Discuss <br /> Your Property.</h1>
-            <p className="text-xl text-slate-500 font-light leading-relaxed mb-12">
-              Have a question about a potential purchase or a building defect? Our team is here to provide expert guidance and a transparent quote for your requirements.
-            </p>
-            
+            <h2 className="text-3xl font-serif text-primary mb-8">Get in Touch</h2>
             <div className="space-y-8">
               <div className="flex items-start gap-6">
                 <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-accent shrink-0">
@@ -691,15 +781,29 @@ const ContactPage = () => (
 
 const BlogArchive = ({ onPostClick }: { onPostClick: (id: number) => void }) => (
   <div className="pt-32">
-    <section className="section-spacing bg-white">
-      <div className="max-w-[1400px] mx-auto px-8">
-        <div className="max-w-3xl mb-20">
-          <div className="subheading-pill">Insights & Advice</div>
-          <h1 className="text-5xl md:text-7xl text-primary mb-8">Property <br /> Knowledge Base.</h1>
-          <p className="text-xl text-slate-500 font-light leading-relaxed">
+    {/* Banner */}
+    <section className="relative h-[50vh] flex items-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/facade-row-apartment-buildings-against-clear-blue-sky-1.jpg" 
+          alt="Blog Banner" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm" />
+      </div>
+      <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
+        <div className="max-w-3xl">
+          <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Insights & Advice</div>
+          <h1 className="text-5xl md:text-7xl text-white mb-8">Property <br /> Knowledge Base.</h1>
+          <p className="text-xl text-white/60 font-light leading-relaxed">
             Stay informed with the latest updates from the UK property market, expert surveying advice, and guides on maintaining your home.
           </p>
         </div>
+      </div>
+    </section>
+
+    <section className="py-20 bg-white">
+      <div className="max-w-[1400px] mx-auto px-8">
         <Blog onPostClick={onPostClick} />
       </div>
     </section>
@@ -816,7 +920,7 @@ const BlogPost = ({ id, onBack }: { id: number, onBack: () => void }) => {
 };
 
 const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void }) => (
-  <footer className="bg-[#FBFBFA] pt-32 pb-12 border-t border-primary/5">
+  <footer className="bg-[#FBFBFA] pt-16 pb-12 border-t border-primary/5">
     <div className="max-w-[1400px] mx-auto px-8">
       <div className="grid lg:grid-cols-12 gap-20 mb-24">
         <div className="lg:col-span-5">
@@ -893,6 +997,15 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
         </div>
       </div>
 
+      <div className="mb-20 flex justify-center">
+        <img 
+          src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/freepik__background__75369.png" 
+          alt="Weldon Young Large Logo" 
+          className="max-w-[400px] md:max-w-[600px] w-full h-auto opacity-20"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+
       <div className="pt-12 border-t border-primary/5 flex justify-center">
         <span className="font-mono text-[10px] uppercase tracking-widest text-slate-400">© 2026 Weldon Young Surveyors</span>
       </div>
@@ -950,7 +1063,7 @@ export default function App() {
         <BlogPost id={selectedPost} onBack={() => setView('blog')} />
       )}
 
-      <CTA />
+      {view !== 'contact' && <CTA />}
       <Footer setView={setView} />
     </div>
   );
