@@ -26,7 +26,7 @@ import { useState, useEffect } from 'react';
 
 const LOGO_URL = "https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/Logo-no-background-2-1.png";
 
-const Nav = ({ setView }: { setView: (v: 'home' | 'blog') => void }) => {
+const Nav = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -38,9 +38,9 @@ const Nav = ({ setView }: { setView: (v: 'home' | 'blog') => void }) => {
 
   const menuItems = [
     { label: 'Home', action: () => setView('home'), href: '#' },
-    { label: 'Services', action: () => setView('home'), href: '#services' },
+    { label: 'Services', action: () => setView('services'), href: '#' },
     { label: 'Blog', action: () => setView('blog'), href: '#' },
-    { label: 'Contact Us', action: () => setView('home'), href: '#contact' },
+    { label: 'Contact Us', action: () => setView('contact'), href: '#' },
   ];
 
   return (
@@ -584,59 +584,127 @@ const Blog = ({ onPostClick }: { onPostClick: (id: number) => void }) => {
   );
 };
 
-const BlogPost = ({ id, onBack }: { id: number, onBack: () => void }) => {
-  // Mock content for a single post
-  return (
-    <section className="pt-40 pb-20 bg-white">
-      <div className="max-w-[900px] mx-auto px-8">
-        <button 
-          onClick={onBack}
-          className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-400 hover:text-primary transition-colors mb-12"
-        >
-          <ArrowRight size={12} className="rotate-180" /> Back to Blog
-        </button>
-        
-        <div className="subheading-pill">Expert Advice</div>
-        <h1 className="text-4xl md:text-6xl text-primary mb-8 leading-tight font-serif">
-          Understanding RICS Home Survey Levels
-        </h1>
-        <div className="flex items-center gap-6 mb-12 border-y border-slate-100 py-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-slate-200" />
-            <div>
-              <p className="text-xs font-bold text-primary">Weldon Young Team</p>
-              <p className="text-[10px] text-slate-400 uppercase tracking-widest">Chartered Surveyors</p>
+const ServicesPage = () => (
+  <div className="pt-32">
+    <section className="section-spacing bg-white">
+      <div className="max-w-[1400px] mx-auto px-8">
+        <div className="max-w-3xl mb-20">
+          <div className="subheading-pill">Our Expertise</div>
+          <h1 className="text-5xl md:text-7xl text-primary mb-8">Professional <br /> Surveying Services.</h1>
+          <p className="text-xl text-slate-500 font-light leading-relaxed">
+            Weldon Young provides a comprehensive range of RICS-regulated surveying services. From pre-purchase inspections to specialist damp investigations, we deliver technical clarity for every property type.
+          </p>
+        </div>
+        <Services />
+      </div>
+    </section>
+    <Expertise />
+    <HowItWorks />
+  </div>
+);
+
+const ContactPage = () => (
+  <div className="pt-32">
+    <section className="section-spacing bg-white">
+      <div className="max-w-[1400px] mx-auto px-8">
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
+          <div>
+            <div className="subheading-pill">Contact Us</div>
+            <h1 className="text-5xl md:text-7xl text-primary mb-8">Let's Discuss <br /> Your Property.</h1>
+            <p className="text-xl text-slate-500 font-light leading-relaxed mb-12">
+              Have a question about a potential purchase or a building defect? Our team is here to provide expert guidance and a transparent quote for your requirements.
+            </p>
+            
+            <div className="space-y-8">
+              <div className="flex items-start gap-6">
+                <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-accent shrink-0">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-primary mb-1">Email Our Team</h4>
+                  <p className="text-slate-500 mb-2">For general inquiries and quote requests.</p>
+                  <a href="mailto:info@weldonyoung.co.uk" className="text-accent font-bold hover:underline">info@weldonyoung.co.uk</a>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-6">
+                <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-accent shrink-0">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-primary mb-1">Call Our Office</h4>
+                  <p className="text-slate-500 mb-2">Speak directly with our coordination team.</p>
+                  <a href="tel:01234567890" className="text-accent font-bold hover:underline">01234 567 890</a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-6">
+                <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-accent shrink-0">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-primary mb-1">Our Location</h4>
+                  <p className="text-slate-500">123 High Street, London, EC1A 1BB</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="h-8 w-px bg-slate-100" />
-          <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400">Feb 12, 2026</div>
-        </div>
 
-        <div className="aspect-video rounded-2xl overflow-hidden mb-12">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="Blog" className="w-full h-full object-cover" />
-        </div>
-
-        <div className="prose prose-slate max-w-none">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6">
-            Buying a home is one of the most significant investments you'll ever make. To ensure you're making a sound decision, a professional survey is essential. However, many buyers are confused by the different levels of RICS Home Surveys available.
-          </p>
-          <h2 className="text-2xl font-serif text-primary mt-12 mb-6">Level 1: RICS Home Survey</h2>
-          <p className="text-slate-600 leading-relaxed mb-6">
-            The most basic survey, suitable for modern homes in good condition. It uses a traffic light system to rate the condition of different parts of the property.
-          </p>
-          <h2 className="text-2xl font-serif text-primary mt-12 mb-6">Level 2: RICS HomeBuyer Report</h2>
-          <p className="text-slate-600 leading-relaxed mb-6">
-            The most popular choice for standard properties. It provides a more detailed assessment and includes advice on repairs and ongoing maintenance.
-          </p>
-          <h2 className="text-2xl font-serif text-primary mt-12 mb-6">Level 3: RICS Building Survey</h2>
-          <p className="text-slate-600 leading-relaxed mb-6">
-            The most comprehensive survey, recommended for older properties, period homes, or buildings that have undergone significant alterations.
-          </p>
+          <div className="bg-primary p-10 md:p-16 rounded-3xl shadow-2xl relative overflow-hidden">
+            <div className="relative z-10">
+              <h3 className="text-white text-3xl font-serif mb-8">Send a Message</h3>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Full Name</label>
+                    <input type="text" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors" placeholder="John Doe" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Email Address</label>
+                    <input type="email" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors" placeholder="john@example.com" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Service Required</label>
+                  <select className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors appearance-none">
+                    <option className="bg-primary">Level 3 Building Survey</option>
+                    <option className="bg-primary">Level 2 HomeBuyer Report</option>
+                    <option className="bg-primary">Damp & Timber Investigation</option>
+                    <option className="bg-primary">Other Inquiry</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Message</label>
+                  <textarea className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors h-32" placeholder="Tell us about the property..."></textarea>
+                </div>
+                <button className="btn-accent-pill w-full !text-primary">
+                  Submit Request <ArrowRight size={14} />
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  );
-};
+  </div>
+);
+
+const BlogArchive = ({ onPostClick }: { onPostClick: (id: number) => void }) => (
+  <div className="pt-32">
+    <section className="section-spacing bg-white">
+      <div className="max-w-[1400px] mx-auto px-8">
+        <div className="max-w-3xl mb-20">
+          <div className="subheading-pill">Insights & Advice</div>
+          <h1 className="text-5xl md:text-7xl text-primary mb-8">Property <br /> Knowledge Base.</h1>
+          <p className="text-xl text-slate-500 font-light leading-relaxed">
+            Stay informed with the latest updates from the UK property market, expert surveying advice, and guides on maintaining your home.
+          </p>
+        </div>
+        <Blog onPostClick={onPostClick} />
+      </div>
+    </section>
+  </div>
+);
 
 const CTA = () => (
   <section id="contact" className="section-spacing relative overflow-hidden">
@@ -693,7 +761,61 @@ const CTA = () => (
   </section>
 );
 
-const Footer = () => (
+const BlogPost = ({ id, onBack }: { id: number, onBack: () => void }) => {
+  // Mock content for a single post
+  return (
+    <section className="pt-40 pb-20 bg-white">
+      <div className="max-w-[900px] mx-auto px-8">
+        <button 
+          onClick={onBack}
+          className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-400 hover:text-primary transition-colors mb-12"
+        >
+          <ArrowRight size={12} className="rotate-180" /> Back to Blog
+        </button>
+        
+        <div className="subheading-pill">Expert Advice</div>
+        <h1 className="text-4xl md:text-6xl text-primary mb-8 leading-tight font-serif">
+          Understanding RICS Home Survey Levels
+        </h1>
+        <div className="flex items-center gap-6 mb-12 border-y border-slate-100 py-6">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-slate-200" />
+            <div>
+              <p className="text-xs font-bold text-primary">Weldon Young Team</p>
+              <p className="text-[10px] text-slate-400 uppercase tracking-widest">Chartered Surveyors</p>
+            </div>
+          </div>
+          <div className="h-8 w-px bg-slate-100" />
+          <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400">Feb 12, 2026</div>
+        </div>
+
+        <div className="aspect-video rounded-2xl overflow-hidden mb-12">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="Blog" className="w-full h-full object-cover" />
+        </div>
+
+        <div className="prose prose-slate max-w-none">
+          <p className="text-lg text-slate-600 leading-relaxed mb-6">
+            Buying a home is one of the most significant investments you'll ever make. To ensure you're making a sound decision, a professional survey is essential. However, many buyers are confused by the different levels of RICS Home Surveys available.
+          </p>
+          <h2 className="text-2xl font-serif text-primary mt-12 mb-6">Level 1: RICS Home Survey</h2>
+          <p className="text-slate-600 leading-relaxed mb-6">
+            The most basic survey, suitable for modern homes in good condition. It uses a traffic light system to rate the condition of different parts of the property.
+          </p>
+          <h2 className="text-2xl font-serif text-primary mt-12 mb-6">Level 2: RICS HomeBuyer Report</h2>
+          <p className="text-slate-600 leading-relaxed mb-6">
+            The most popular choice for standard properties. It provides a more detailed assessment and includes advice on repairs and ongoing maintenance.
+          </p>
+          <h2 className="text-2xl font-serif text-primary mt-12 mb-6">Level 3: RICS Building Survey</h2>
+          <p className="text-slate-600 leading-relaxed mb-6">
+            The most comprehensive survey, recommended for older properties, period homes, or buildings that have undergone significant alterations.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void }) => (
   <footer className="bg-[#FBFBFA] pt-32 pb-12 border-t border-primary/5">
     <div className="max-w-[1400px] mx-auto px-8">
       <div className="grid lg:grid-cols-12 gap-20 mb-24">
@@ -729,12 +851,19 @@ const Footer = () => (
             <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400 mb-8">Navigation</h4>
             <ul className="space-y-4">
               {[
-                { label: 'Home', href: '#' },
-                { label: 'Services', href: '#services' },
-                { label: 'Blog', href: '#' },
-                { label: 'Contact Us', href: '#contact' }
+                { label: 'Home', action: () => setView('home') },
+                { label: 'Services', action: () => setView('services') },
+                { label: 'Blog', action: () => setView('blog') },
+                { label: 'Contact Us', action: () => setView('contact') }
               ].map(item => (
-                <li key={item.label}><a href={item.href} className="text-primary hover:text-accent transition-colors font-bold uppercase tracking-widest text-[10px]">{item.label}</a></li>
+                <li key={item.label}>
+                  <button 
+                    onClick={item.action}
+                    className="text-primary hover:text-accent transition-colors font-bold uppercase tracking-widest text-[10px]"
+                  >
+                    {item.label}
+                  </button>
+                </li>
               ))}
             </ul>
           </div>
@@ -742,7 +871,14 @@ const Footer = () => (
             <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400 mb-8">Our Services</h4>
             <ul className="space-y-4">
               {['Building Surveys', 'RICS Valuations', 'Party Wall', 'Dilapidations', 'Expert Witness'].map(item => (
-                <li key={item}><a href="#" className="text-primary hover:text-accent transition-colors font-bold uppercase tracking-widest text-[10px]">{item}</a></li>
+                <li key={item}>
+                  <button 
+                    onClick={() => setView('services')}
+                    className="text-primary hover:text-accent transition-colors font-bold uppercase tracking-widest text-[10px] text-left"
+                  >
+                    {item}
+                  </button>
+                </li>
               ))}
             </ul>
           </div>
@@ -765,7 +901,7 @@ const Footer = () => (
 );
 
 export default function App() {
-  const [view, setView] = useState<'home' | 'blog' | 'post'>('home');
+  const [view, setView] = useState<'home' | 'services' | 'contact' | 'blog' | 'post'>('home');
   const [selectedPost, setSelectedPost] = useState<number | null>(null);
 
   useEffect(() => {
@@ -795,8 +931,16 @@ export default function App() {
         </>
       )}
 
+      {view === 'services' && (
+        <ServicesPage />
+      )}
+
+      {view === 'contact' && (
+        <ContactPage />
+      )}
+
       {view === 'blog' && (
-        <Blog onPostClick={(id) => {
+        <BlogArchive onPostClick={(id) => {
           setSelectedPost(id);
           setView('post');
         }} />
@@ -807,7 +951,7 @@ export default function App() {
       )}
 
       <CTA />
-      <Footer />
+      <Footer setView={setView} />
     </div>
   );
 }
