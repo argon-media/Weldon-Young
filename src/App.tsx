@@ -620,9 +620,9 @@ const ServicesPage = () => {
           <img 
             src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/old-stone-house-england-1.jpg" 
             alt="Services Banner" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent" />
         </div>
         <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
           <div className="max-w-3xl">
@@ -685,9 +685,9 @@ const ContactPage = () => (
         <img 
           src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/georgian-townhouse-brick-facade-with-sash-windows-afternoon-lighting-1.jpg" 
           alt="Contact Banner" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent" />
       </div>
       <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
         <div className="max-w-3xl">
@@ -787,9 +787,9 @@ const BlogArchive = ({ onPostClick }: { onPostClick: (id: number) => void }) => 
         <img 
           src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/facade-row-apartment-buildings-against-clear-blue-sky-1.jpg" 
           alt="Blog Banner" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent" />
       </div>
       <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
         <div className="max-w-3xl">
@@ -997,11 +997,11 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
         </div>
       </div>
 
-      <div className="mb-20 flex justify-center">
+      <div className="my-8 flex justify-center">
         <img 
           src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/freepik__background__75369.png" 
-          alt="Weldon Young Large Logo" 
-          className="max-w-[400px] md:max-w-[600px] w-full h-auto opacity-20"
+          alt="RICS Logo" 
+          className="max-w-[200px] md:max-w-[300px] w-full h-auto opacity-100"
           referrerPolicy="no-referrer"
         />
       </div>
