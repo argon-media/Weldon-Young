@@ -26,7 +26,7 @@ import { useState, useEffect } from 'react';
 
 const LOGO_URL = "https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/Logo-no-background-2-1.png";
 
-const Nav = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void }) => {
+const Nav = ({ setView, view }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void, view: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,12 +43,14 @@ const Nav = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog
     { label: 'Contact Us', action: () => setView('contact'), href: '#' },
   ];
 
+  const isHome = view === 'home';
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
-      <nav className={`w-full max-w-[1400px] transition-all duration-500 pointer-events-auto ${scrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'}`}>
+      <nav className={`w-full max-w-[1400px] transition-all duration-500 pointer-events-auto ${scrolled || !isHome ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'}`}>
         <div className="px-8 flex items-center justify-between">
           <div className="flex items-center gap-4 cursor-pointer" onClick={() => setView('home')}>
-            <img src={LOGO_URL} alt="Weldon Young" className="h-20 md:h-32 w-auto" />
+            <img src={LOGO_URL} alt="Weldon Young" className="h-16 md:h-24 w-auto" />
           </div>
 
           <div className="hidden md:flex items-center gap-12">
@@ -145,7 +147,7 @@ const Hero = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blo
         >
           <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-[12px] border-white">
             <img 
-              src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/home-inspector-examining-exterior-house-with-clipboard-scaled.jpg" 
+              src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/03/house-image-1.jpg" 
               alt="UK Residential Property" 
               className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
               referrerPolicy="no-referrer"
@@ -176,14 +178,14 @@ const Services = () => {
     {
       id: "03",
       title: "RICS Valuations",
-      desc: "Accurate, impartial reports for buying, selling, probate, tax and shared ownership.",
+      desc: "Help to buy, Shared ownership, Matrimonial, Probate, Lease Extensions, Commercial etc ",
       icon: <Search size={32} />,
       tags: ["Valuations", "RICS", "Specialist"]
     },
     {
       id: "04",
       title: "Property Management",
-      desc: "Professional residential and commercial management to protect your assets.",
+      desc: "Full service, residential and commercial property management",
       icon: <Compass size={32} />,
       tags: ["Management", "Residential", "Commercial"]
     }
@@ -407,38 +409,6 @@ const HowItWorks = () => (
         <button className="btn-crafted">
           Get in touch <ArrowRight size={14} />
         </button>
-      </div>
-    </div>
-  </section>
-);
-
-const Portfolio = () => (
-  <section className="section-spacing bg-slate-50">
-    <div className="max-w-[1400px] mx-auto px-8">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-        <div>
-          <div className="subheading-pill">Our Work</div>
-          <p className="text-slate-500 font-light leading-relaxed max-w-xl">
-            Our team provide surveys and building investigations on various property types, from 500-year-old timber-framed buildings to modern developments.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-12">
-        {[
-          { title: "Timber-Framed Cottage", location: "Surrey", desc: "Specialist Level 3 survey for a 400-year-old Grade II listed cottage.", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" },
-          { title: "Modern Townhouse", location: "London", desc: "HomeBuyer Level 2 report with detailed drone photography of the roof.", img: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=2070&auto=format&fit=crop" },
-          { title: "Edwardian Residence", location: "Brighton", desc: "Comprehensive damp and timber investigation for a period property.", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" }
-        ].map((project, i) => (
-          <div key={i} className="group">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-6 shadow-sm">
-              <img src={project.img} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-            </div>
-            <h4 className="text-2xl font-serif text-primary mb-3">{project.title}</h4>
-            <p className="text-slate-500 text-sm font-light mb-4 leading-relaxed">{project.desc}</p>
-            <p className="text-accent font-mono text-[10px] uppercase tracking-widest font-bold">{project.location}</p>
-          </div>
-        ))}
       </div>
     </div>
   </section>
@@ -999,7 +969,7 @@ export default function App() {
 
   return (
     <div className="bg-[#FBFBFA] selection:bg-accent selection:text-white">
-      <Nav setView={(v) => {
+      <Nav view={view} setView={(v) => {
         setView(v);
         setSelectedPost(null);
       }} />
@@ -1009,7 +979,6 @@ export default function App() {
           <Hero setView={setView} />
           <Services />
           <HowItWorks />
-          <Portfolio />
           <Expertise />
           <Testimonials />
           <Blog onPostClick={(id) => {
