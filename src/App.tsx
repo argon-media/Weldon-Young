@@ -48,7 +48,7 @@ const Nav = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog
       <nav className={`w-full max-w-[1400px] transition-all duration-500 pointer-events-auto ${scrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'}`}>
         <div className="px-8 flex items-center justify-between">
           <div className="flex items-center gap-4 cursor-pointer" onClick={() => setView('home')}>
-            <img src={LOGO_URL} alt="Weldon Young" className="h-12 md:h-16 w-auto" />
+            <img src={LOGO_URL} alt="Weldon Young" className="h-20 md:h-32 w-auto" />
           </div>
 
           <div className="hidden md:flex items-center gap-12">
@@ -66,9 +66,6 @@ const Nav = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full" />
               </a>
             ))}
-            <button className="btn-crafted !py-3 !px-8 text-sm">
-              Book Survey <Calendar size={16} />
-            </button>
           </div>
 
           <button className="md:hidden text-primary" onClick={() => setIsOpen(!isOpen)}>
@@ -98,9 +95,6 @@ const Nav = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog
                     {item.label}
                   </a>
                 ))}
-                <button className="btn-crafted w-full">
-                  Book Survey <Calendar size={14} />
-                </button>
               </div>
             </motion.div>
           )}
@@ -110,7 +104,7 @@ const Nav = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog
   );
 };
 
-const Hero = () => (
+const Hero = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void }) => (
   <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
     {/* Blueprint Background */}
     <div className="absolute inset-0 blueprint-grid z-0" />
@@ -122,33 +116,21 @@ const Hero = () => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "circOut" }}
         >
-          <div className="subheading-pill">Chartered Building Surveyors</div>
+          <div className="subheading-pill">RICS Regulated Surveyors</div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-[72px] leading-[0.9] text-primary mb-10">
-            Residential <br />
-            <span className="italic text-accent">Property Surveys</span> <br />
-            & Investigations.
-          </h1>
+            <h1 className="text-5xl md:text-7xl lg:text-[72px] leading-[0.9] text-primary mb-10">
+              <span className="italic text-accent">Property Surveyors</span>
+            </h1>
           
           <div className="max-w-2xl">
             <p className="text-lg text-slate-600 font-light leading-relaxed mb-10">
-              Weldon Young offers clear, independent advice on building defects and residential home surveys. Whether you're buying a property or need help diagnosing issues such as dampness, our Chartered Surveyors and Engineers can assist.
+              A RICS regulated firm, Weldon Young offers independent, specialist advice on residential and Commercial surveys and valuations. Our Surveyors combine technical expertise with clear reporting, helping you understand your property and advise on your real estate assets
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-8">
-              <button className="btn-crafted group">
-                Get a Quote
+              <button className="btn-crafted group" onClick={() => setView('contact')}>
+                contact us
                 <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
               </button>
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <img src={`https://picsum.photos/seed/ukuser${i}/100/100`} alt="Client" />
-                    </div>
-                  ))}
-                </div>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-slate-400">70+ Years Combined <br /> Team Experience</span>
-              </div>
             </div>
           </div>
         </motion.div>
@@ -180,30 +162,30 @@ const Services = () => {
     {
       id: "01",
       title: "Building Surveys (Level 3)",
-      desc: "Comprehensive structural assessments for older or complex properties. Our 85+ page reports include detailed photos and technical explanations.",
+      desc: "Comprehensive structural assessments for older or complex properties.",
       icon: <Building2 size={32} />,
       tags: ["Structural", "Level 3", "Detailed"]
     },
     {
       id: "02",
       title: "HomeBuyer Reports (Level 2)",
-      desc: "The standard choice for modern properties in reasonable condition. Clear, independent advice on building defects and maintenance.",
+      desc: "The standard choice for modern properties in reasonable condition.",
       icon: <Scale size={32} />,
       tags: ["Level 2", "Pre-Purchase", "Standard"]
     },
     {
       id: "03",
-      title: "Damp & Timber Investigations",
-      desc: "Specialist pre-purchase damp and timber surveys. We identify the root cause of issues and provide independent remedial advice.",
+      title: "RICS Valuations",
+      desc: "Help to buy, Shared ownership, Matrimonial, Probate, Lease Extensions, Commercial etc",
       icon: <Search size={32} />,
-      tags: ["Damp", "Timber", "Specialist"]
+      tags: ["Valuations", "RICS", "Specialist"]
     },
     {
       id: "04",
-      title: "Listed Building Surveys",
-      desc: "Expert investigations for historic and timber-framed buildings. We understand the unique requirements of heritage property maintenance.",
+      title: "Property Management.",
+      desc: "Full service, residential and commercial property management",
       icon: <Compass size={32} />,
-      tags: ["Historic", "Listed", "Heritage"]
+      tags: ["Management", "Residential", "Commercial"]
     }
   ];
 
@@ -213,7 +195,7 @@ const Services = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
             <div className="subheading-pill">Our Services</div>
-            <h2 className="text-4xl md:text-6xl text-primary mb-6">Expert Property <br /> Investigations.</h2>
+            <h2 className="text-4xl md:text-6xl text-primary mb-6">Experts In Property</h2>
             <p className="text-slate-500 font-light leading-relaxed">
               From historic timber-framed buildings to modern developments, we provide clear, independent advice on all property types.
             </p>
@@ -287,7 +269,7 @@ const Expertise = () => (
             },
             { 
               title: "Qualified Experts", 
-              desc: "Our team consists of fully qualified Chartered Building Engineers and Surveyors with deep technical knowledge.",
+              desc: "Our team consists of fully qualified RICS Regulated Surveyors with deep technical knowledge.",
               icon: <Award className="text-accent" />
             },
             { 
@@ -589,7 +571,7 @@ const ServicesPage = () => {
     {
       title: "Building Surveys (Level 3)",
       desc: "Our Level 3 Building Survey is the most comprehensive inspection we offer. It is particularly suited for older properties, period homes, or buildings that have undergone significant alterations. We provide a deep dive into the structural integrity, identifying hidden defects and providing technical advice on necessary repairs.",
-      features: ["Full structural assessment", "85+ page detailed report", "Technical repair advice", "Future maintenance planning"],
+      features: ["Full structural assessment", "Detailed report", "Technical repair advice", "Future maintenance planning"],
       img: "https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/georgian-townhouse-brick-facade-with-sash-windows-afternoon-lighting-1.jpg"
     },
     {
@@ -599,15 +581,15 @@ const ServicesPage = () => {
       img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
     },
     {
-      title: "Damp & Timber Investigations",
-      desc: "Moisture issues can be devastating for a property. Our specialist damp and timber surveys use advanced diagnostic tools to identify the root cause of dampness, wood rot, or beetle infestation. We provide independent remedial advice, ensuring you don't pay for unnecessary treatments.",
-      features: ["Moisture mapping", "Timber decay diagnosis", "Independent remedial advice", "Advanced diagnostic tools"],
+      title: "RICS Valuations",
+      desc: "Help to buy, Shared ownership, Matrimonial, Probate, Lease Extensions, Commercial etc. We provide independent valuations for various purposes, ensuring you have an accurate assessment of your property's market value.",
+      features: ["Help to Buy", "Shared Ownership", "Probate & Matrimonial", "Commercial Valuations"],
       img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      title: "Listed Building Surveys",
-      desc: "Historic properties require a different approach. Our surveyors are experts in traditional building methods and materials. We understand the complexities of Grade I and II listed buildings, ensuring our surveys respect the heritage while identifying critical maintenance needs.",
-      features: ["Heritage expertise", "Traditional material analysis", "Conservation advice", "Listed building compliance"],
+      title: "Property Management.",
+      desc: "Full service, residential and commercial property management. We handle all aspects of property management, from tenant liaison to maintenance coordination, ensuring your real estate assets are well-maintained and performing optimally.",
+      features: ["Full Service", "Residential Management", "Commercial Management", "Maintenance Coordination"],
       img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
     }
   ];
@@ -629,7 +611,7 @@ const ServicesPage = () => {
             <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Our Expertise</div>
             <h1 className="text-5xl md:text-7xl text-white mb-8">Professional <br /> Surveying Services.</h1>
             <p className="text-xl text-white/60 font-light leading-relaxed">
-              Weldon Young provides a comprehensive range of RICS-regulated surveying services. From pre-purchase inspections to specialist damp investigations, we deliver technical clarity for every property type.
+              A RICS regulated firm, Weldon Young offers independent, specialist advice on residential and Commercial surveys and valuations. Our Surveyors combine technical expertise with clear reporting, helping you understand your property and advise on your real estate assets
             </p>
           </div>
         </div>
@@ -886,7 +868,7 @@ const BlogPost = ({ id, onBack }: { id: number, onBack: () => void }) => {
             <div className="w-10 h-10 rounded-full bg-slate-200" />
             <div>
               <p className="text-xs font-bold text-primary">Weldon Young Team</p>
-              <p className="text-[10px] text-slate-400 uppercase tracking-widest">Chartered Surveyors</p>
+              <p className="text-[10px] text-slate-400 uppercase tracking-widest">RICS Regulated Surveyors</p>
             </div>
           </div>
           <div className="h-8 w-px bg-slate-100" />
@@ -926,7 +908,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
         <div className="lg:col-span-5">
           <img src={LOGO_URL} alt="Weldon Young" className="h-16 w-auto mb-10" />
           <p className="text-slate-500 text-lg font-light leading-relaxed mb-10 max-w-md">
-            Weldon Young provides clear, independent advice on building defects and residential home surveys across London and beyond.
+            A RICS regulated firm, Weldon Young offers independent, specialist advice on residential and Commercial surveys and valuations. Our Surveyors combine technical expertise with clear reporting, helping you understand your property and advise on your real estate assets
           </p>
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4">
@@ -1030,8 +1012,7 @@ export default function App() {
       
       {view === 'home' && (
         <>
-          <Hero />
-          <Stats />
+          <Hero setView={setView} />
           <Services />
           <HowItWorks />
           <Portfolio />
