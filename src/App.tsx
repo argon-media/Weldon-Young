@@ -660,7 +660,7 @@ const ContactPage = () => (
                 <div>
                   <h4 className="text-lg font-bold text-primary mb-1">Email Our Team</h4>
                   <p className="text-slate-500 mb-2">For general inquiries and quote requests.</p>
-                  <a href="mailto:info@weldonyoung.co.uk" className="text-accent font-bold hover:underline">info@weldonyoung.co.uk</a>
+                  <a href="mailto:info@weldonyoung.com" className="text-accent font-bold hover:underline">info@weldonyoung.com</a>
                 </div>
               </div>
               
@@ -671,7 +671,7 @@ const ContactPage = () => (
                 <div>
                   <h4 className="text-lg font-bold text-primary mb-1">Call Our Office</h4>
                   <p className="text-slate-500 mb-2">Speak directly with our coordination team.</p>
-                  <a href="tel:01234567890" className="text-accent font-bold hover:underline">01234 567 890</a>
+                  <a href="tel:01202165854" className="text-accent font-bold hover:underline">01202 165854</a>
                 </div>
               </div>
 
@@ -681,7 +681,7 @@ const ContactPage = () => (
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-primary mb-1">Our Location</h4>
-                  <p className="text-slate-500">123 High Street, London, EC1A 1BB</p>
+                  <p className="text-slate-500">Wimborne, Dorset, United Kingdom</p>
                 </div>
               </div>
             </div>
