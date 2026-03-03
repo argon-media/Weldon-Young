@@ -176,14 +176,14 @@ const Services = () => {
     {
       id: "03",
       title: "RICS Valuations",
-      desc: "Help to buy, Shared ownership, Matrimonial, Probate, Lease Extensions, Commercial etc",
+      desc: "Accurate, impartial reports for buying, selling, probate, tax and shared ownership.",
       icon: <Search size={32} />,
       tags: ["Valuations", "RICS", "Specialist"]
     },
     {
       id: "04",
-      title: "Property Management.",
-      desc: "Full service, residential and commercial property management",
+      title: "Property Management",
+      desc: "Professional residential and commercial management to protect your assets.",
       icon: <Compass size={32} />,
       tags: ["Management", "Residential", "Commercial"]
     }
@@ -256,20 +256,17 @@ const Expertise = () => (
       <div className="order-1 lg:order-2 text-white">
         <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Why Choose Us</div>
         <h2 className="text-4xl md:text-6xl mb-6">Independent Advice, <br /> <span className="italic">Professional</span> Integrity.</h2>
-        <p className="text-white/60 font-light leading-relaxed mb-10 max-w-lg">
-          Our small team comprises a combined 70+ years experience, providing approachable and expert guidance for home buyers and owners.
-        </p>
         
         <div className="space-y-12 mb-12">
           {[
             { 
               title: "100% Independent", 
-              desc: "We offer completely impartial property advice and guidance, with no ties to estate agents or lenders.",
+              desc: "We offer completely impartial property advice and guidance.",
               icon: <Shield className="text-accent" />
             },
             { 
               title: "Qualified Experts", 
-              desc: "Our team consists of fully qualified RICS Regulated Surveyors with deep technical knowledge.",
+              desc: "Our team consists of fully qualified RICS Surveyors & Valuers with deep technical knowledge.",
               icon: <Award className="text-accent" />
             },
             { 
@@ -369,25 +366,25 @@ const HowItWorks = () => (
           { 
             id: "01", 
             title: "Get in Touch", 
-            desc: "Contact us for a free consultation. We'll discuss your property needs and recommend the right service.",
+            desc: "",
             icon: <MessageSquare className="text-accent" size={24} />
           },
           { 
             id: "02", 
-            title: "Book Your Survey", 
-            desc: "We'll schedule a convenient time, confirm costs upfront, and assign your dedicated surveyor.",
+            title: "Discuss Your Requirements", 
+            desc: "",
             icon: <Calendar className="text-accent" size={24} />
           },
           { 
             id: "03", 
-            title: "Thorough Inspection", 
-            desc: "Our RICS surveyor conducts a comprehensive on-site inspection using the latest techniques.",
+            title: "Carry Out Inspection.", 
+            desc: "",
             icon: <Search className="text-accent" size={24} />
           },
           { 
             id: "04", 
             title: "Receive Your Report", 
-            desc: "Get a clear, detailed report with findings and recommendations — typically within 5 working days.",
+            desc: "",
             icon: <FileCheck className="text-accent" size={24} />
           }
         ].map((step, i) => (
@@ -408,7 +405,7 @@ const HowItWorks = () => (
 
       <div className="flex justify-center">
         <button className="btn-crafted">
-          Start Your Process <ArrowRight size={14} />
+          Get in touch <ArrowRight size={14} />
         </button>
       </div>
     </div>
@@ -421,7 +418,6 @@ const Portfolio = () => (
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
         <div>
           <div className="subheading-pill">Our Work</div>
-          <h2 className="text-4xl md:text-6xl text-primary mb-6">From Historic to Modern.</h2>
           <p className="text-slate-500 font-light leading-relaxed max-w-xl">
             Our team provide surveys and building investigations on various property types, from 500-year-old timber-framed buildings to modern developments.
           </p>
@@ -459,27 +455,26 @@ const Testimonials = () => (
             Our dedication to excellence resonates with our clients. Read firsthand accounts of their experiences with Weldon Young.
           </p>
           <div className="flex items-center gap-4 mb-8">
-            <div className="text-3xl font-bold text-primary">4.9</div>
+            <div className="text-3xl font-bold text-primary">5.0</div>
             <div className="flex gap-1">
               {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} className="text-accent" fill="currentColor" />)}
             </div>
-            <div className="text-xs text-slate-400 font-mono">(113 Reviews)</div>
           </div>
         </div>
         
         <div className="lg:col-span-2 grid md:grid-cols-2 gap-8">
           {[
             { 
-              name: "Sue W", 
-              role: "Home Owner", 
-              text: "We highly recommend Weldon Young. After a site visit, they quickly provided an excellent, very detailed report which clearly identified the damp issues we were experiencing and offered advice on resolving them.", 
-              img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" 
+              name: "Sam V", 
+              role: "Home Buyer", 
+              text: "James has done two surveys for me on property purchases. He’s been efficient, honest and professional. I will use him every time I buy.", 
+              img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" 
             },
             { 
-              name: "Yvonne Lord", 
+              name: "Nick M", 
               role: "Home Buyer", 
-              text: "I had a level 3 home buyers report. The office was friendly and professional. The surveyor did an excellent detailed survey with very clear drone photography of the roof. Highly recommend.", 
-              img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" 
+              text: "Provided me with an excellent detailed survey, and provided ongoing advice and support throughout the process - thank you!", 
+              img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop" 
             }
           ].map((t, i) => (
             <div key={i} className="p-10 bg-slate-50 rounded-2xl border border-slate-100 italic text-slate-600 leading-relaxed relative">
@@ -571,25 +566,25 @@ const ServicesPage = () => {
     {
       title: "Building Surveys (Level 3)",
       desc: "Our Level 3 Building Survey is the most comprehensive inspection we offer. It is particularly suited for older properties, period homes, or buildings that have undergone significant alterations. We provide a deep dive into the structural integrity, identifying hidden defects and providing technical advice on necessary repairs.",
-      features: ["Full structural assessment", "Detailed report", "Technical repair advice", "Future maintenance planning"],
+      features: ["Condition rating system", "Detailed report", "Technical repair advice", "Future maintenance planning"],
       img: "https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/georgian-townhouse-brick-facade-with-sash-windows-afternoon-lighting-1.jpg"
     },
     {
       title: "HomeBuyer Reports (Level 2)",
       desc: "The standard choice for modern properties in reasonable condition. This report focuses on identifying building defects that might affect the property's value or safety. It uses a clear traffic light system to highlight areas of concern, making it easy for buyers to understand the property's condition.",
-      features: ["Condition rating system", "Identification of urgent defects", "Maintenance advice", "Professional valuation (optional)"],
+      features: ["Condition rating system", "Identification of urgent defects", "Thorough inspection", "Professional valuation (optional)"],
       img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
     },
     {
       title: "RICS Valuations",
-      desc: "Help to buy, Shared ownership, Matrimonial, Probate, Lease Extensions, Commercial etc. We provide independent valuations for various purposes, ensuring you have an accurate assessment of your property's market value.",
-      features: ["Help to Buy", "Shared Ownership", "Probate & Matrimonial", "Commercial Valuations"],
+      desc: "As a RICSregulated firm, we deliver accurate, impartial reports for purposes such as buying, selling, probate, tax and sharedownership, help to buy and lease extension. Our valuations give you clarity, confidence and a reliable basis for important financial decisions.",
+      features: ["Buying & Selling", "Probate & Tax", "Shared Ownership", "Help to Buy & Lease Extension"],
       img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      title: "Property Management.",
-      desc: "Full service, residential and commercial property management. We handle all aspects of property management, from tenant liaison to maintenance coordination, ensuring your real estate assets are well-maintained and performing optimally.",
-      features: ["Full Service", "Residential Management", "Commercial Management", "Maintenance Coordination"],
+      title: "Property Management",
+      desc: "We provide professional residential and commercial property management designed to protect your assets and reduce the pressures of day to day ownership. From tenant and occupier liaison to maintenance, compliance, and financial oversight, we ensure your property is well run, legally compliant, and performing at its best. Our proactive approach helps safeguard value and creates a smooth, reliable experience for landlords and investors.",
+      features: ["Tenant & Occupier Liaison", "Maintenance & Compliance", "Financial Oversight", "Proactive Asset Protection"],
       img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
     }
   ];
@@ -609,9 +604,9 @@ const ServicesPage = () => {
         <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
           <div className="max-w-3xl">
             <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Our Expertise</div>
-            <h1 className="text-5xl md:text-7xl text-white mb-8">Professional <br /> Surveying Services.</h1>
+            <h1 className="text-5xl md:text-7xl text-white mb-8">Professional Surveying & <br /> Valuation Services.</h1>
             <p className="text-xl text-white/60 font-light leading-relaxed">
-              A RICS regulated firm, Weldon Young offers independent, specialist advice on residential and Commercial surveys and valuations. Our Surveyors combine technical expertise with clear reporting, helping you understand your property and advise on your real estate assets
+              Weldon Young provides a comprehensive range of RICS – regulated surveying and valuation services. From pre-purchase surveys, to RICS professional valuations
             </p>
           </div>
         </div>
@@ -801,18 +796,18 @@ const CTA = () => (
           <div>
             <h2 className="text-4xl md:text-6xl text-white mb-6">Ready to <br /> <span className="italic text-accent">Secure</span> Your Asset?</h2>
             <p className="text-white/60 text-xl font-light mb-10 leading-relaxed">
-              Contact our team today for a free, no-obligation consultation. We'll discuss your requirements and provide a competitive quote within 24 hours.
+              Contact our team today for a free, no-obligation consultation.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
               <button className="flex items-center justify-center gap-4 px-8 py-4 bg-accent text-primary font-mono text-[11px] font-black uppercase tracking-[0.2em] rounded-full hover:shadow-xl transition-all">
-                <Phone size={14} /> 01234 567 890
+                <Phone size={14} /> 01202 165854
               </button>
             </div>
           </div>
 
           <div className="bg-white/5 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10">
-            <h3 className="text-white text-2xl font-serif mb-8">Request a Consultation</h3>
+            <h3 className="text-white text-2xl font-serif mb-8">Contact Us</h3>
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -908,7 +903,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
         <div className="lg:col-span-5">
           <img src={LOGO_URL} alt="Weldon Young" className="h-16 w-auto mb-10" />
           <p className="text-slate-500 text-lg font-light leading-relaxed mb-10 max-w-md">
-            A RICS regulated firm, Weldon Young offers independent, specialist advice on residential and Commercial surveys and valuations. Our Surveyors combine technical expertise with clear reporting, helping you understand your property and advise on your real estate assets
+            A RICS regulated firm, Weldon Young offers independent, specialist advice on residential and Commercial surveys and valuations. Our Surveyors combine technical expertise with clear reporting, helping you understand your property and advise on your real estate assets across the south and beyond
           </p>
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-4">
@@ -917,7 +912,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
               </div>
               <div>
                 <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1">Email Us</div>
-                <a href="mailto:info@weldonyoung.co.uk" className="text-primary font-bold hover:text-accent transition-colors">info@weldonyoung.co.uk</a>
+                <a href="mailto:info@weldonyoung.com" className="text-primary font-bold hover:text-accent transition-colors">info@weldonyoung.com</a>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -926,7 +921,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
               </div>
               <div>
                 <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1">Call Us</div>
-                <a href="tel:01234567890" className="text-primary font-bold hover:text-accent transition-colors">01234 567 890</a>
+                <a href="tel:01202165854" className="text-primary font-bold hover:text-accent transition-colors">01202 165854</a>
               </div>
             </div>
           </div>
@@ -956,7 +951,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
           <div>
             <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400 mb-8">Our Services</h4>
             <ul className="space-y-4">
-              {['Building Surveys', 'RICS Valuations', 'Party Wall', 'Dilapidations', 'Expert Witness'].map(item => (
+              {['Building Surveys', 'RICS Valuations', 'Party Wall', 'Expert Witness'].map(item => (
                 <li key={item}>
                   <button 
                     onClick={() => setView('services')}
@@ -971,8 +966,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
           <div>
             <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400 mb-8">Office</h4>
             <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
-              123 High Street <br />
-              London, EC1A 1BB <br />
+              Wimborne, Dorset <br />
               United Kingdom
             </p>
           </div>
