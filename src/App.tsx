@@ -26,7 +26,7 @@ import { useState, useEffect } from 'react';
 
 const LOGO_URL = "https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/02/Logo-no-background-2-1.png";
 
-const Nav = ({ setView, view }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void, view: string }) => {
+const Nav = ({ setView, view }: { setView: (v: 'home' | 'services' | 'bournemouth' | 'contact' | 'blog' | 'post') => void, view: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,6 +39,7 @@ const Nav = ({ setView, view }: { setView: (v: 'home' | 'services' | 'contact' |
   const menuItems = [
     { label: 'Home', action: () => setView('home'), href: '#' },
     { label: 'Services', action: () => setView('services'), href: '#' },
+    { label: 'Bournemouth', action: () => setView('bournemouth'), href: '#' },
     { label: 'Blog', action: () => setView('blog'), href: '#' },
     { label: 'Contact Us', action: () => setView('contact'), href: '#' },
   ];
@@ -624,6 +625,275 @@ const ServicesPage = () => {
   );
 };
 
+const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'services' | 'bournemouth' | 'contact' | 'blog' | 'post') => void }) => {
+  const surveyTypes = [
+    { title: "Level 2 Home Survey (HomeBuyer Report)", desc: "Ideal for conventional properties under 100 years old in reasonable condition. Provides traffic-light condition ratings and identifies visible defects requiring attention." },
+    { title: "Level 3 Building Survey", desc: "Comprehensive structural analysis examining roof voids, subfloors (where accessible), and party wall conditions. Essential for older properties, or buildings in poor condition." },
+    { title: "RICS Valuation Services", desc: "Accurate market valuation for secured lending, probate, taxation, shared ownership, help to buy and other purposes requiring Royal Institution of Chartered Surveyors standards." },
+    { title: "New Build Snagging Surveys", desc: "Quality checks for recently constructed properties, identifying construction defects before your warranty period expires." },
+    { title: "Specific Defect Reports", desc: "Targeted investigations for particular concerns— whether damp, structural movement, or timber decay requiring further investigation." },
+    { title: "Victorian Property Surveys", desc: "Expert analysis of period properties and conversions, including assessment of original materials, historic repairs, and compliance issues." },
+    { title: "Investment Property Surveys", desc: "Commercial-focused assessments for buy-to-let properties, examining rental potential alongside structural condition." },
+    { title: "Pre-Purchase Consultations", desc: "Initial property assessments before formal surveys, helping you decide which level of inspection suits your specific property." }
+  ];
+
+  const areas = [
+    "Boscombe", "Charminster", "East Cliff", "Kinson", "Moordown", 
+    "Pokesdown", "Southbourne", "Talbot Woods", "Westbourne", "Winton", 
+    "West Cliff", "Springbourne", "Littledown", "Iford", "Strouden Park"
+  ];
+
+  const faqs = [
+    {
+      q: "What makes Bournemouth properties unique from a survey perspective?",
+      a: "Bournemouth combines coastal exposure challenges with diverse housing stock. Properties face salt damage, ground instability from sandy Eocene clay soils, and increasing flood risks—surface water flooding risk is projected to increase by 226% in some postcodes by 2050. The local area also features high concentrations of Victorian conversions requiring specialist knowledge to assess properly."
+    },
+    {
+      q: "Do you offer follow-up support after the survey?",
+      a: "Yes. You have direct access to your surveyor to discuss findings, seek clarification, and receive independent advice throughout your purchase process. We’re an independent practice focused on serving private clients rather than volume, so every instruction receives proper attention."
+    },
+    {
+      q: "What’s included in your survey reports?",
+      a: "Reports include photographic evidence of all identified defects, clear condition assessments, cost estimates for repairs, and practical recommendations prioritised by urgency. We assess structural integrity, roofing, damp, drainage, and external elements. For Bournemouth properties, we specifically address coastal exposure effects and flood risk assessment—all explained without technical jargon."
+    }
+  ];
+
+  return (
+    <div className="pt-32">
+      {/* Banner */}
+      <section className="relative h-[70vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/03/house-image-1.jpg" 
+            alt="Bournemouth Home Surveys" 
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent" />
+        </div>
+        <div className="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
+          <div className="max-w-3xl">
+            <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Expert RICS-Regulated Home Survey Services</div>
+            <h1 className="text-5xl md:text-7xl text-white mb-8">Professional Home Surveys in Bournemouth</h1>
+            <p className="text-xl text-white/80 font-light leading-relaxed mb-10">
+              Weldon Young provides clear, reliable and RICS-regulated home surveys throughout Bournemouth. Whether you’re buying your first home or investing in a high-value property, our reports give you the insight you need to make confident decisions.
+            </p>
+            <p className="text-white/60 font-light mb-10">
+              With over 12 years’ experience as Surveyors serving residential and commercial clients across the south coast, we combine technical expertise with strong local market knowledge of Bournemouth’s distinctive housing stock—from Victorian conversions to modern cliff-top developments.
+            </p>
+            <button className="btn-crafted !bg-accent !text-primary border-none" onClick={() => setView('contact')}>
+              Book Your Survey Consultation Today <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Essential */}
+      <section className="section-spacing bg-white">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-start">
+            <div>
+              <div className="subheading-pill">Essential Protection</div>
+              <h2 className="text-4xl md:text-5xl text-primary mb-8 font-serif">Why Home Surveys are Essential for Bournemouth Properties</h2>
+              <p className="text-lg text-slate-600 font-light leading-relaxed mb-8">
+                Bournemouth’s property market presents unique challenges that make professional home surveys essential rather than optional. With average house prices around £360,000 and significant variation between property types—from flats at £198,000 to detached homes over £1,000,000 understanding a property’s condition before purchase protects your investment.
+              </p>
+              <p className="text-slate-500 font-light leading-relaxed">
+                Our experienced surveyors provide professional advice that gives you peace of mind. Understanding what you’re buying, including maintenance requirements and potential issues, means you can proceed with confidence or walk away before committing to a problematic purchase.
+              </p>
+            </div>
+            <div className="grid gap-8">
+              {[
+                { title: "Protection Against Costly Surprises", desc: "Surveys in Bournemouth regularly identify defects requiring significant repair costs. Roof re-covers on Victorian properties can cost anywhere from £10,000–£18,000, while structural movement repairs run even higher." },
+                { title: "Coastal Property Challenges", desc: "Properties along the seafront and cliff tops face accelerated deterioration from salt exposure. Corrosion of metalwork, render breakdown, and damp penetration affect approximately 55-60% of properties surveyed in coastal postcodes like BH1 and BH5." },
+                { title: "Victorian Housing Complexities", desc: "Many of Bournemouth’s elegant Victorian and Edwardian homes have been converted into flats, creating shared drainage systems, complex roof arrangements, and potential issues with historic materials that require specialist knowledge to assess properly." },
+                { title: "Negotiating Power", desc: "A detailed building survey provides accurate information about the property’s condition, giving property buyers genuine leverage in price negotiations and helping avoid overpaying for buildings with hidden defects." }
+              ].map((item, i) => (
+                <div key={i} className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+                  <h4 className="text-xl font-bold text-primary mb-3">{item.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Survey Services */}
+      <section className="section-spacing bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-pattern-light opacity-10" />
+        <div className="max-w-[1400px] mx-auto px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Our Survey Services</div>
+            <h2 className="text-4xl md:text-6xl mb-6">Tailored Solutions for Bournemouth</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-white/5 backdrop-blur-sm p-12 rounded-3xl border border-white/10">
+              <h3 className="text-3xl mb-6 font-serif">Residential Property Surveys</h3>
+              <p className="text-white/70 font-light leading-relaxed mb-8">
+                We create comprehensive survey reports for residential properties of all sizes across Bournemouth, whether you’re purchasing a seafront flat, a Victorian terrace in the town centre, or a family home in the surrounding areas of Christchurch or Poole.
+              </p>
+              <p className="text-white/50 font-light leading-relaxed">
+                Our building surveyors have specialist knowledge of the different property types found throughout this seaside location from period conversions requiring careful assessment of original materials to modern developments where construction quality verification matters most.
+              </p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm p-12 rounded-3xl border border-white/10">
+              <h3 className="text-3xl mb-6 font-serif">Commercial Property Surveys</h3>
+              <p className="text-white/70 font-light leading-relaxed mb-8">
+                Make informed investment decisions with professional building surveys for commercial properties and investment portfolios. Our team provides expert guidance for business premises, development opportunities, and buy-to-let properties across Dorset and Hampshire.
+              </p>
+              <p className="text-white/50 font-light leading-relaxed">
+                Commercial clients benefit from our experience in market valuation, project management support, and detailed assessments that address the individual needs of business property transactions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comprehensive Survey Types */}
+      <section className="section-spacing bg-white">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="mb-16">
+            <div className="subheading-pill">Survey Types</div>
+            <h2 className="text-4xl md:text-5xl text-primary font-serif">Our Comprehensive Survey Types</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {surveyTypes.map((type, i) => (
+              <div key={i} className="p-8 border border-slate-100 rounded-2xl hover:shadow-xl transition-all duration-500 group">
+                <h4 className="text-lg font-bold text-primary mb-4 group-hover:text-accent transition-colors">{type.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed font-light">{type.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Survey Process */}
+      <section className="section-spacing bg-slate-50 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="text-center mb-16">
+            <div className="subheading-pill">Our Process</div>
+            <h2 className="text-4xl md:text-6xl text-primary mb-6 font-serif">Our Survey Process</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+            {[
+              { step: "1", title: "Initial Consultation", desc: "We discuss your property type, concerns, and survey requirements. Based on the specific property details—location, age, construction type we recommend the most suitable survey level for your needs." },
+              { step: "2", title: "Property Inspection", desc: "Your RICS Surveyor conducts a thorough on-site examination." },
+              { step: "3", title: "Report Preparation", desc: "We prepare clear, detailed reports with photographic evidence of any defects found. Turnaround is typically 2-4 working days. Every report includes honest professional advice, without jargon." },
+              { step: "4", title: "Follow-up Support", desc: "You receive direct access to your surveyor for questions and clarifications. Whether you need help understanding findings, want expert advice on negotiating repairs, or require guidance on planning works, ongoing support is included." }
+            ].map((s, i) => (
+              <div key={i} className="relative z-10">
+                <div className="w-12 h-12 rounded-full bg-accent text-primary flex items-center justify-center font-bold mb-6">
+                  {s.step}
+                </div>
+                <h4 className="text-xl font-bold text-primary mb-4">{s.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed font-light">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Areas We Serve */}
+      <section className="section-spacing bg-white">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <div className="subheading-pill">Local Coverage</div>
+              <h2 className="text-4xl md:text-5xl text-primary mb-8 font-serif">Areas We Serve in Bournemouth</h2>
+              <p className="text-lg text-slate-500 font-light leading-relaxed mb-10">
+                We provide professional home survey services across a wide range of neighbourhoods and suburbs in Bournemouth, ensuring expert local knowledge no matter where your property is located. Our coverage includes:
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {areas.map(area => (
+                  <div key={area} className="flex items-center gap-2 text-slate-600">
+                    <MapPin size={14} className="text-accent" />
+                    <span className="text-sm font-medium">{area}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-10 text-slate-500 font-light italic">
+                If your property is located in any of these areas or the surrounding parts of Bournemouth, our experienced surveyors are ready to assist you with thorough and reliable home surveys tailored to the local property characteristics.
+              </p>
+            </div>
+            <div className="rounded-3xl overflow-hidden shadow-2xl h-[500px] bg-slate-100 relative">
+              {/* Map Placeholder */}
+              <div className="absolute inset-0 flex items-center justify-center flex-col p-12 text-center">
+                <MapPin size={48} className="text-accent mb-4" />
+                <p className="text-primary font-bold uppercase tracking-widest text-xs mb-2">Bournemouth Coverage Map</p>
+                <p className="text-slate-400 text-sm">Serving all BH postcodes and surrounding areas.</p>
+              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2066&auto=format&fit=crop" 
+                alt="Bournemouth Map" 
+                className="w-full h-full object-cover opacity-20"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-spacing bg-slate-50">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="subheading-pill">Client Testimonials</div>
+            <h2 className="text-4xl font-serif text-primary mb-8">What Our Clients Say</h2>
+            <p className="text-xl text-slate-600 font-light italic leading-relaxed mb-12">
+              "Our clients consistently praise our home survey service in Bournemouth for its thoroughness and clear, jargon-free reports that provide invaluable insights. They appreciate the expert guidance and responsive support that help them make confident, informed property decisions."
+            </p>
+            <div className="flex justify-center items-center gap-2 text-accent">
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+              <Star size={20} fill="currentColor" />
+              <span className="text-primary font-bold ml-2">Google Verified Reviews</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-spacing bg-white">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="text-center mb-16">
+            <div className="subheading-pill">FAQs</div>
+            <h2 className="text-4xl md:text-5xl text-primary font-serif">Frequently Asked Questions</h2>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            {faqs.map((faq, i) => (
+              <div key={i} className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
+                <h4 className="text-xl font-bold text-primary mb-4">{faq.q}</h4>
+                <p className="text-slate-600 font-light leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="section-spacing bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-5" />
+        <div className="max-w-[1400px] mx-auto px-8 relative z-10">
+          <div className="bg-white/5 backdrop-blur-md p-12 md:p-20 rounded-3xl border border-white/10 text-center">
+            <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Contact Weldon Young</div>
+            <h2 className="text-4xl md:text-6xl mb-6 font-serif">Get Your Bournemouth Property Survey Today</h2>
+            <p className="text-xl text-white/70 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+              Make informed decisions about your next property purchase in the south west with a clear, reliable survey from experienced surveyors who understand Bournemouth’s unique property challenges.
+            </p>
+            <p className="text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+              Whether you’re buying in the town centre, along the seafront, or throughout the wider Dorset area, our RICS-qualified team delivers the quality reporting and expert guidance you need. Contact our team to arrange your property inspection and receive independent advice you can trust.
+            </p>
+            <button className="btn-crafted !bg-accent !text-primary border-none" onClick={() => setView('contact')}>
+              Request Your Free Quote <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
 const ContactPage = () => (
   <div className="pt-32">
     {/* Banner */}
@@ -866,7 +1136,7 @@ const BlogPost = ({ id, onBack }: { id: number, onBack: () => void }) => {
   );
 };
 
-const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'blog' | 'post') => void }) => (
+const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'bournemouth' | 'contact' | 'blog' | 'post') => void }) => (
   <footer className="bg-[#FBFBFA] pt-16 pb-12 border-t border-primary/5">
     <div className="max-w-[1400px] mx-auto px-8">
       <div className="grid lg:grid-cols-12 gap-20 mb-24">
@@ -904,6 +1174,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
               {[
                 { label: 'Home', action: () => setView('home') },
                 { label: 'Services', action: () => setView('services') },
+                { label: 'Bournemouth', action: () => setView('bournemouth') },
                 { label: 'Blog', action: () => setView('blog') },
                 { label: 'Contact Us', action: () => setView('contact') }
               ].map(item => (
@@ -960,7 +1231,7 @@ const Footer = ({ setView }: { setView: (v: 'home' | 'services' | 'contact' | 'b
 );
 
 export default function App() {
-  const [view, setView] = useState<'home' | 'services' | 'contact' | 'blog' | 'post'>('home');
+  const [view, setView] = useState<'home' | 'services' | 'bournemouth' | 'contact' | 'blog' | 'post'>('home');
   const [selectedPost, setSelectedPost] = useState<number | null>(null);
 
   useEffect(() => {
@@ -990,6 +1261,10 @@ export default function App() {
 
       {view === 'services' && (
         <ServicesPage />
+      )}
+
+      {view === 'bournemouth' && (
+        <BournemouthPage setView={setView} />
       )}
 
       {view === 'contact' && (
