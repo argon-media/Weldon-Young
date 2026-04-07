@@ -645,10 +645,10 @@ const AboutPage = ({ setView }: { setView: (v: 'home' | 'about' | 'services' | '
           <div className="max-w-4xl">
             <div className="subheading-pill">Independent & RICS Regulated</div>
             <h1 className="text-5xl md:text-7xl text-primary mb-8 font-serif leading-tight">About Weldon Young Surveyors</h1>
-            <p className="text-2xl text-slate-600 font-light leading-relaxed mb-8">
+            <p className="text-[18px] text-slate-600 font-light leading-relaxed mb-8">
               Weldon Young is an independent, RICS-regulated surveying firm built on one principle: that clients deserve clear, honest advice from a qualified expert they can actually speak to.
             </p>
-            <p className="text-xl text-slate-500 font-light leading-relaxed">
+            <p className="text-[18px] text-slate-500 font-light leading-relaxed">
               No call centres, no hand-offs, no jargon. Just straightforward, accurate guidance you can rely on at every stage of your property journey.
             </p>
           </div>
@@ -656,21 +656,9 @@ const AboutPage = ({ setView }: { setView: (v: 'home' | 'about' | 'services' | '
       </section>
 
       {/* Meet James Weldon */}
-      <section className="py-24 bg-white">
+      <section className="pt-24 pb-[26px] bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-start">
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden bg-slate-100 relative group">
-                <img 
-                  src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/03/james-weldon.jpg" 
-                  alt="James Weldon" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-              </div>
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10" />
-            </div>
             <div>
               <div className="subheading-pill">Our Founder</div>
               <h2 className="text-4xl md:text-5xl text-primary mb-8 font-serif leading-tight">Meet James Weldon — Founder & RICS Qualified Surveyor</h2>
@@ -686,12 +674,24 @@ const AboutPage = ({ setView }: { setView: (v: 'home' | 'about' | 'services' | '
                 </p>
               </div>
             </div>
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden bg-slate-100 relative group">
+                <img 
+                  src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/04/james-weldon-headshot.jpg" 
+                  alt="James Weldon" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Approach & Values */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="pt-24 pb-[26px] bg-white relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div className="p-12 bg-slate-50 rounded-[2.5rem] border border-slate-100">
@@ -730,23 +730,51 @@ const AboutPage = ({ setView }: { setView: (v: 'home' | 'about' | 'services' | '
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="relative overflow-hidden rounded-[3rem] bg-primary p-12 md:p-24 text-center">
-            <div className="absolute inset-0 blueprint-grid opacity-10" />
-            <div className="relative z-10 flex flex-col items-center">
-              <h2 className="text-4xl md:text-6xl text-white mb-12 font-serif leading-tight">Ready to Discuss Your Property?</h2>
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                <a href="tel:01202165854" className="flex items-center gap-4 text-white text-2xl font-bold hover:text-accent transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                    <Phone size={24} />
+      {/* Contact Section */}
+      <section id="contact" className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-5" />
+        <div className="max-w-[1400px] mx-auto px-8 relative z-10">
+          <div className="bg-primary p-12 md:p-20 rounded-sm shadow-2xl relative overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+              <div>
+                <h2 className="text-4xl md:text-6xl text-white mb-12 leading-tight">Ready to Discuss Your <span className="italic text-accent">Property?</span></h2>
+                
+                <div className="flex flex-col sm:flex-row gap-6">
+                  <button className="flex items-center justify-center gap-4 px-8 py-4 bg-accent text-primary font-mono text-[11px] font-black uppercase tracking-[0.2em] rounded-full hover:shadow-xl transition-all">
+                    <Phone size={14} /> 01202 165854
+                  </button>
+                </div>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10">
+                <h3 className="text-white text-2xl font-serif mb-8">Contact Us</h3>
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Full Name</label>
+                      <input type="text" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors" placeholder="John Doe" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Email Address</label>
+                      <input type="email" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors" placeholder="john@example.com" />
+                    </div>
                   </div>
-                  01202 165854
-                </a>
-                <button className="btn-crafted !bg-accent !text-primary border-none !px-12 !py-6 text-xl" onClick={() => setView('contact')}>
-                  Contact Us <ArrowRight size={24} />
-                </button>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Property Type</label>
+                    <select className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors appearance-none">
+                      <option className="bg-primary">Residential</option>
+                      <option className="bg-primary">Commercial</option>
+                      <option className="bg-primary">Industrial</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-mono uppercase tracking-widest text-white/50">Message</label>
+                    <textarea className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors h-32" placeholder="Tell us about your property..."></textarea>
+                  </div>
+                  <button className="btn-accent-pill w-full !text-primary">
+                    Send Inquiry <ArrowRight size={14} />
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -794,7 +822,7 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
   return (
     <div className="pt-32">
       {/* Banner */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden py-20">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden py-20">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://weldon-young-surveyors.argon-devsite.com/wp-content/uploads/2026/03/house-image-1.jpg" 
@@ -820,31 +848,37 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
             >
               Professional Home Surveys in Bournemouth
             </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-white/80 font-light leading-relaxed mb-10"
-            >
-              Weldon Young provides clear, reliable and RICS-regulated home surveys throughout Bournemouth. Whether you’re buying your first home or investing in a high-value property, our reports give you the insight you need to make confident decisions.
-            </motion.p>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-white/60 font-light mb-12 max-w-2xl"
-            >
-              With over 12 years’ experience as Surveyors serving residential and commercial clients across the south coast, we combine technical expertise with strong local market knowledge of Bournemouth’s distinctive housing stock—from Victorian conversions to modern cliff-top developments.
-            </motion.p>
             <motion.button 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               className="btn-crafted !bg-accent !text-primary border-none !px-10 !py-5 text-lg" 
-              onClick={() => setView('contact')}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Book Your Survey Consultation Today <ArrowRight size={20} />
             </motion.button>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/3]">
+              <img 
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" 
+                alt="Bournemouth Property" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <div className="subheading-pill">Expert Guidance</div>
+              <h2 className="text-4xl md:text-5xl text-primary mb-8 font-serif leading-tight">Reliable Surveys for Your Peace of Mind</h2>
+              <p className="text-lg text-slate-600 font-light leading-relaxed">
+                Weldon Young provides clear, reliable and RICS-regulated home surveys throughout Bournemouth. Whether you’re buying your first home or investing in a high-value property, our reports give you the insight you need to make confident decisions. With over 12 years’ experience as Surveyors serving residential and commercial clients across the south coast, we combine technical expertise with strong local market knowledge of Bournemouth’s distinctive housing stock—from Victorian conversions to modern cliff-top developments.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -859,10 +893,10 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
               <p className="text-lg text-slate-600 font-light leading-relaxed mb-8">
                 Bournemouth’s property market presents unique challenges that make professional home surveys essential rather than optional. With average house prices around £360,000 and significant variation between property types—from flats at £198,000 to detached homes over £1,000,000 understanding a property’s condition before purchase protects your investment.
               </p>
-              <p className="text-slate-500 font-light leading-relaxed mb-10">
+              <p className="text-[18px] text-[oklch(0.446_0.043_257.281)] font-light leading-relaxed mb-10">
                 Our experienced surveyors provide professional advice that gives you peace of mind. Understanding what you’re buying, including maintenance requirements and potential issues, means you can proceed with confidence or walk away before committing to a problematic purchase.
               </p>
-              <button className="btn-crafted !bg-accent !text-primary border-none" onClick={() => setView('contact')}>
+              <button className="btn-crafted !bg-accent !text-primary border-none" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 Book Your Survey Consultation <ArrowRight size={16} />
               </button>
             </div>
@@ -906,7 +940,7 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
                 <p className="text-white/70 font-light leading-relaxed mb-8">
                   We create comprehensive survey reports for residential properties of all sizes across Bournemouth, whether you’re purchasing a seafront flat, a Victorian terrace in the town centre, or a family home in the surrounding areas of Christchurch or Poole.
                 </p>
-                <p className="text-white/50 font-light leading-relaxed">
+                <p className="text-[16px] text-[oklab(0.999994_0.0000455677_0.0000200868_/_0.7)] font-light leading-relaxed">
                   Our building surveyors have specialist knowledge of the different property types found throughout this seaside location from period conversions requiring careful assessment of original materials to modern developments where construction quality verification matters most.
                 </p>
               </div>
@@ -924,11 +958,16 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
                 <p className="text-white/70 font-light leading-relaxed mb-8">
                   Make informed investment decisions with professional building surveys for commercial properties and investment portfolios. Our team provides expert guidance for business premises, development opportunities, and buy-to-let properties across Dorset and Hampshire.
                 </p>
-                <p className="text-white/50 font-light leading-relaxed">
+                <p className="text-[16px] text-[oklab(0.999994_0.0000455677_0.0000200868_/_0.7)] font-light leading-relaxed">
                   Commercial clients benefit from our experience in market valuation, project management support, and detailed assessments that address the individual needs of business property transactions.
                 </p>
               </div>
             </div>
+          </div>
+          <div className="mt-16 flex justify-center">
+            <button className="btn-crafted !bg-accent !text-primary border-none" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              Request Your Free Quote <ArrowRight size={16} />
+            </button>
           </div>
         </div>
       </section>
@@ -940,7 +979,7 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
             <div className="subheading-pill">Survey Types</div>
             <h2 className="text-4xl md:text-5xl text-primary font-serif">Our Comprehensive Survey Types</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {surveyTypes.map((type, i) => (
               <div key={i} className="p-10 bg-white border border-slate-100 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
                 <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-accent mb-8 group-hover:bg-accent group-hover:text-primary transition-colors">
@@ -951,24 +990,27 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
               </div>
             ))}
           </div>
+          <div className="flex justify-center">
+            <button className="btn-crafted !bg-accent !text-primary border-none" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              Request Your Free Quote <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Our Survey Process */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="pt-[26px] pb-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 blueprint-grid opacity-[0.03] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
-            <div className="max-w-2xl">
-              <div className="subheading-pill">The Journey</div>
-              <h2 className="text-4xl md:text-6xl text-primary font-serif leading-tight">Our Survey Process</h2>
-            </div>
-            <p className="text-slate-500 font-light max-w-md lg:text-right">
+          <div className="mb-20">
+            <div className="subheading-pill">The Journey</div>
+            <h2 className="text-4xl md:text-6xl text-primary font-serif leading-tight mb-6">Our Survey Process</h2>
+            <p className="text-slate-500 font-light max-w-2xl text-left text-[18px]">
               We've refined our workflow to ensure maximum clarity, speed, and professional accuracy for every Bournemouth instruction.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               { 
                 step: "01", 
@@ -1018,11 +1060,16 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
               </div>
             ))}
           </div>
+          <div className="flex justify-center">
+            <button className="btn-crafted !bg-accent !text-primary border-none" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              Request Your Free Quote <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Areas We Serve */}
-      <section className="py-24 bg-white">
+      <section className="pt-[26px] pb-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
@@ -1066,7 +1113,7 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
       <section className="py-24 bg-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 blueprint-grid opacity-5" />
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center mb-20">
             <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Client Testimonials</div>
             <h2 className="text-4xl md:text-5xl font-serif mb-10">What Our Clients Say</h2>
             <div className="relative">
@@ -1082,77 +1129,52 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
               <span className="text-white/60 font-mono text-sm tracking-widest uppercase">Trusted & Authentic Local Expertise</span>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Google Review Widget */}
-      <section className="py-16 bg-white border-b border-slate-100">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-8">
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 bg-white shadow-md rounded-xl flex items-center justify-center p-2">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Logo.svg" alt="Google" className="w-full h-auto" />
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-2xl font-bold text-primary">5.0</span>
-                  <div className="flex gap-0.5 text-amber-400">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
-                  </div>
-                </div>
-                <p className="text-slate-500 text-sm font-medium">Based on 48 Google reviews</p>
-              </div>
-            </div>
-            <a 
-              href="https://www.google.com/search?q=weldon+young+surveyors#lrd=0x8f187020a4100c99:0x3af20319d0ef33cc,1" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-white border border-slate-200 rounded-full text-primary font-bold text-sm hover:bg-slate-50 transition-colors flex items-center gap-2 shadow-sm"
-            >
-              Write a review
-            </a>
-          </div>
-          
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                author: "Sarah Jenkins",
-                date: "2 weeks ago",
+                author: "Dennis Loving",
+                date: "5 months ago",
                 rating: 5,
-                text: "Excellent service from James. The report was extremely thorough and he took the time to explain everything to me over the phone. Highly recommend for anyone buying in Bournemouth.",
-                avatar: "SJ"
+                text: "Stinson did a great job on our roof and gutter replacement. the staff was incredibly careful and pleasant. The team was efficient...",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop"
               },
               {
-                author: "Mark Thompson",
-                date: "1 month ago",
+                author: "Chuck Rietkerk",
+                date: "7 months ago",
                 rating: 5,
-                text: "Very professional and efficient. The Level 3 survey identified several issues we hadn't noticed, which saved us thousands in potential repairs. Great local knowledge.",
-                avatar: "MT"
+                text: "About 3 years ago, our home suffered hail damage from a storm. Stinson's did a great job of working with us and our insuranc...",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop"
               },
               {
-                author: "Emily Roberts",
-                date: "2 months ago",
+                author: "April Davis",
+                date: "8 months ago",
                 rating: 5,
-                text: "Quick turnaround and very clear communication. The jargon-free report was exactly what we needed as first-time buyers. Thank you Weldon Young!",
-                avatar: "ER"
+                text: "This user only left a rating.",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop"
               }
             ].map((review, i) => (
-              <div key={i} className="p-8 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col h-full">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
-                    {review.avatar}
+              <div key={i} className="p-8 bg-white rounded-2xl flex flex-col h-full shadow-xl">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-4">
+                    <img src={review.avatar} alt={review.author} className="w-12 h-12 rounded-full object-cover" />
+                    <div>
+                      <h4 className="text-sm font-bold text-primary">{review.author}</h4>
+                      <p className="text-[10px] text-slate-400">{review.date}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-primary">{review.author}</h4>
-                    <p className="text-[10px] text-slate-400 uppercase tracking-widest">{review.date}</p>
-                  </div>
-                  <div className="ml-auto flex gap-0.5 text-amber-400">
-                    {[...Array(review.rating)].map((_, i) => <Star key={i} size={12} fill="currentColor" />)}
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Logo.svg" alt="Google" className="w-5 h-5" />
+                </div>
+                <div className="flex gap-0.5 text-amber-400 mb-4">
+                  {[...Array(review.rating)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                  <div className="ml-2 w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                    <CheckCircle2 size={10} className="text-white" />
                   </div>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed font-light italic flex-grow">
-                  "{review.text}"
+                <p className="text-slate-600 text-sm leading-relaxed font-light flex-grow">
+                  {review.text}
                 </p>
+                <button className="mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest hover:text-primary transition-colors text-left">Read more</button>
               </div>
             ))}
           </div>
@@ -1195,33 +1217,6 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
                 </AnimatePresence>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="relative overflow-hidden rounded-[3rem] bg-[#1a243a] p-12 md:p-24 text-center">
-            <div className="absolute inset-0 blueprint-grid opacity-10" />
-            <div className="relative z-10 flex flex-col items-center">
-              <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Contact Weldon Young</div>
-              <h2 className="text-4xl md:text-5xl text-white mb-8 font-serif leading-tight max-w-4xl">Get Your Bournemouth Property Survey Today</h2>
-              <p className="text-xl text-white/70 font-light leading-relaxed max-w-3xl mx-auto mb-6">
-                Make informed decisions about your next property purchase in the south west with a clear, reliable survey from experienced surveyors who understand Bournemouth’s unique property challenges.
-              </p>
-              <p className="text-xl text-white/70 font-light leading-relaxed max-w-3xl mx-auto mb-6">
-                Whether you’re buying in the town centre, along the seafront, or throughout the wider Dorset area, our RICS-qualified team delivers the quality reporting and expert guidance you need.
-              </p>
-              <p className="text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-                Contact our team to arrange your property inspection and receive independent advice you can trust.
-              </p>
-              <div className="flex justify-center w-full">
-                <button className="btn-crafted !bg-accent !text-primary border-none !px-12 !py-6 text-xl" onClick={() => setView('contact')}>
-                  Request Your Free Quote <ArrowRight size={24} />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -1369,10 +1364,18 @@ const CTA = () => (
       <div className="bg-primary p-12 md:p-20 rounded-sm shadow-2xl relative overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div>
-            <h2 className="text-4xl md:text-6xl text-white mb-6">Ready to <br /> <span className="italic text-accent">Secure</span> Your Asset?</h2>
-            <p className="text-white/60 text-xl font-light mb-10 leading-relaxed">
-              Contact our team today for a free, no-obligation consultation.
-            </p>
+            <h2 className="text-4xl md:text-6xl text-white mb-6 leading-tight">Get Your Bournemouth <br /> <span className="italic text-accent">Property Survey</span> Today</h2>
+            <div className="text-white/60 text-lg font-light mb-10 leading-relaxed space-y-6">
+              <p>
+                Make informed decisions about your next property purchase in the south west with a clear, reliable survey from experienced surveyors who understand Bournemouth’s unique property challenges.
+              </p>
+              <p>
+                Whether you’re buying in the town centre, along the seafront, or throughout the wider Dorset area, our RICS-qualified team delivers the quality reporting and expert guidance you need.
+              </p>
+              <p className="text-[18px] text-[oklab(0.999994_0.0000455677_0.0000200868_/_0.7)] font-light">
+                Contact our team to arrange your property inspection and receive independent advice you can trust.
+              </p>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-6">
               <button className="flex items-center justify-center gap-4 px-8 py-4 bg-accent text-primary font-mono text-[11px] font-black uppercase tracking-[0.2em] rounded-full hover:shadow-xl transition-all">
@@ -1622,7 +1625,7 @@ export default function App() {
         <BlogPost id={selectedPost} onBack={() => setView('blog')} />
       )}
 
-      {view !== 'contact' && <CTA />}
+      {view !== 'contact' && view !== 'about' && <CTA />}
       <Footer setView={setView} />
     </div>
   );
