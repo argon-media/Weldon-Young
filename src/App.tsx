@@ -691,10 +691,10 @@ const AboutPage = ({ setView }: { setView: (v: 'home' | 'about' | 'services' | '
       </section>
 
       {/* Approach & Values */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden">
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="p-12 bg-white rounded-[2.5rem] shadow-sm border border-slate-100">
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
+            <div className="p-12 bg-slate-50 rounded-[2.5rem] border border-slate-100">
               <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-accent mb-8">
                 <Target size={32} />
               </div>
@@ -703,16 +703,16 @@ const AboutPage = ({ setView }: { setView: (v: 'home' | 'about' | 'services' | '
                 Every instruction at Weldon Young is handled personally. We take the time to understand your property, your concerns and your timeline. When your report lands, we are on hand to walk you through it, answer your questions and help you decide what to do next.
               </p>
             </div>
-            <div className="p-12 bg-white rounded-[2.5rem] shadow-sm border border-slate-100">
+            <div className="p-12 bg-slate-50 rounded-[2.5rem] border border-slate-100">
               <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-accent mb-8">
                 <ShieldCheck size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-6">Regulated</h3>
+              <h3 className="text-2xl font-bold text-primary mb-6">Regulated — Fully</h3>
               <p className="text-slate-500 font-light leading-relaxed">
                 As a RICS-regulated firm, we operate under the highest professional standards in the UK property industry. That means every survey and valuation we produce meets a strict regulatory framework.
               </p>
             </div>
-            <div className="p-12 bg-white rounded-[2.5rem] shadow-sm border border-slate-100">
+            <div className="p-12 bg-slate-50 rounded-[2.5rem] border border-slate-100">
               <div className="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-accent mb-8">
                 <Heart size={32} />
               </div>
@@ -721,6 +721,11 @@ const AboutPage = ({ setView }: { setView: (v: 'home' | 'about' | 'services' | '
                 Outside of work, James is a busy father to four young children and a committed Arsenal supporter. That grounding in everyday life shapes the way Weldon Young operates a genuine understanding that for most clients, a property purchase is one of the most significant decisions they will ever make.
               </p>
             </div>
+          </div>
+          <div className="flex justify-center">
+            <button className="btn-crafted" onClick={() => setView('contact')}>
+              Contact Us <ArrowRight size={20} />
+            </button>
           </div>
         </div>
       </section>
@@ -970,28 +975,28 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
                 title: "Initial Consultation", 
                 desc: "We discuss your property type, concerns, and survey requirements. Based on the specific property details—location, age, construction type we recommend the most suitable survey level for your needs.",
                 icon: <MessageSquare size={28} />,
-                color: "bg-blue-50"
+                color: "bg-primary/5"
               },
               { 
                 step: "02", 
                 title: "Property Inspection", 
-                desc: "Your RICS Surveyor conducts a thorough on-site examination. We examine the structure, services, and grounds with professional precision.",
+                desc: "Your RICS Surveyor conducts a thorough on-site examination.",
                 icon: <Search size={28} />,
-                color: "bg-amber-50"
+                color: "bg-primary/5"
               },
               { 
                 step: "03", 
                 title: "Report Preparation", 
                 desc: "We prepare clear, detailed reports with photographic evidence. Turnaround is typically 2-4 working days. Every report includes honest professional advice, without jargon.",
                 icon: <FileCheck size={28} />,
-                color: "bg-emerald-50"
+                color: "bg-primary/5"
               },
               { 
                 step: "04", 
                 title: "Follow-up Support", 
                 desc: "You receive direct access to your surveyor for questions. Whether you need help understanding findings or negotiating repairs, ongoing support is included.",
                 icon: <Users size={28} />,
-                color: "bg-purple-50"
+                color: "bg-primary/5"
               }
             ].map((s, i) => (
               <div key={i} className="relative group h-full">
@@ -1080,6 +1085,80 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
         </div>
       </section>
 
+      {/* Google Review Widget */}
+      <section className="py-16 bg-white border-b border-slate-100">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-8">
+            <div className="flex items-center gap-6">
+              <div className="w-16 h-16 bg-white shadow-md rounded-xl flex items-center justify-center p-2">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Logo.svg" alt="Google" className="w-full h-auto" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-2xl font-bold text-primary">5.0</span>
+                  <div className="flex gap-0.5 text-amber-400">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+                  </div>
+                </div>
+                <p className="text-slate-500 text-sm font-medium">Based on 48 Google reviews</p>
+              </div>
+            </div>
+            <a 
+              href="https://www.google.com/search?q=weldon+young+surveyors#lrd=0x8f187020a4100c99:0x3af20319d0ef33cc,1" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-white border border-slate-200 rounded-full text-primary font-bold text-sm hover:bg-slate-50 transition-colors flex items-center gap-2 shadow-sm"
+            >
+              Write a review
+            </a>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                author: "Sarah Jenkins",
+                date: "2 weeks ago",
+                rating: 5,
+                text: "Excellent service from James. The report was extremely thorough and he took the time to explain everything to me over the phone. Highly recommend for anyone buying in Bournemouth.",
+                avatar: "SJ"
+              },
+              {
+                author: "Mark Thompson",
+                date: "1 month ago",
+                rating: 5,
+                text: "Very professional and efficient. The Level 3 survey identified several issues we hadn't noticed, which saved us thousands in potential repairs. Great local knowledge.",
+                avatar: "MT"
+              },
+              {
+                author: "Emily Roberts",
+                date: "2 months ago",
+                rating: 5,
+                text: "Quick turnaround and very clear communication. The jargon-free report was exactly what we needed as first-time buyers. Thank you Weldon Young!",
+                avatar: "ER"
+              }
+            ].map((review, i) => (
+              <div key={i} className="p-8 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col h-full">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
+                    {review.avatar}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-primary">{review.author}</h4>
+                    <p className="text-[10px] text-slate-400 uppercase tracking-widest">{review.date}</p>
+                  </div>
+                  <div className="ml-auto flex gap-0.5 text-amber-400">
+                    {[...Array(review.rating)].map((_, i) => <Star key={i} size={12} fill="currentColor" />)}
+                  </div>
+                </div>
+                <p className="text-slate-600 text-sm leading-relaxed font-light italic flex-grow">
+                  "{review.text}"
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
@@ -1128,11 +1207,14 @@ const BournemouthPage = ({ setView }: { setView: (v: 'home' | 'about' | 'service
             <div className="relative z-10 flex flex-col items-center">
               <div className="subheading-pill !text-white/60 !border-white/10 !bg-white/5">Contact Weldon Young</div>
               <h2 className="text-4xl md:text-5xl text-white mb-8 font-serif leading-tight max-w-4xl">Get Your Bournemouth Property Survey Today</h2>
-              <p className="text-xl text-white/70 font-light leading-relaxed max-w-3xl mx-auto mb-10">
+              <p className="text-xl text-white/70 font-light leading-relaxed max-w-3xl mx-auto mb-6">
                 Make informed decisions about your next property purchase in the south west with a clear, reliable survey from experienced surveyors who understand Bournemouth’s unique property challenges.
               </p>
-              <p className="text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+              <p className="text-xl text-white/70 font-light leading-relaxed max-w-3xl mx-auto mb-6">
                 Whether you’re buying in the town centre, along the seafront, or throughout the wider Dorset area, our RICS-qualified team delivers the quality reporting and expert guidance you need.
+              </p>
+              <p className="text-white/50 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+                Contact our team to arrange your property inspection and receive independent advice you can trust.
               </p>
               <div className="flex justify-center w-full">
                 <button className="btn-crafted !bg-accent !text-primary border-none !px-12 !py-6 text-xl" onClick={() => setView('contact')}>
